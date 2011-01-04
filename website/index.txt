@@ -35,7 +35,7 @@ or use the methods provided by the mixin in the Array class
 foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 </pre>
 
-which include the short and sweet _x_ method
+which include the short'n'sweet _x_ method
 
 <pre syntax="ruby">
 v = [] #=> []

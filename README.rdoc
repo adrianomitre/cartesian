@@ -28,7 +28,7 @@ One can use the Cartesian module directly
 or use the methods provided by the mixin in the Array class
     foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
-which include the short and sweet _x_ method
+which include the short'n'sweet _x_ method
     v = [] #=> []
     for a,b in [1,2].x [3,4]
       v << [a,b]
