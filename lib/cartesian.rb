@@ -1,5 +1,9 @@
-#
-# The Cartesian module provide methods for the calculation
+$:.unshift(File.dirname(__FILE__)) unless
+  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+
+require 'cartesian_iterator'
+
+# The Cartesian  module provide methods for the calculation
 # of the cartesian producted between two enumerable objects.
 #
 # It can also be easily mixed in into any enumerable class,
@@ -30,12 +34,6 @@
 #   bar = ["a", "b"]
 #   foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 #
-
-$:.unshift(File.dirname(__FILE__)) unless
-  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
-require 'cartesian_iterator'
-
 module Cartesian
 
   VERSION = '0.5.0'
