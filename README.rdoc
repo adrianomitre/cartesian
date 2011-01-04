@@ -25,10 +25,7 @@ One can use the Cartesian module directly
     bar = ["a", "b"]
     Cartesian::product(foo, bar) #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
-or use the methods provided by the mixin in the Array classees
-    require 'cartesian'
-    foo = [1, 2]
-    bar = ["a", "b"]
+or use the methods provided by the mixin in the Array class
     foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
 which include the short and sweet _x_ method
