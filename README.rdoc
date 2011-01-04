@@ -1,6 +1,6 @@
 = cartesian
 
-* http://github.com/adrianomitre/cartesian
+* http://adrianomitre.github.com/cartesian/website/index.html
 
 == DESCRIPTION:
 
