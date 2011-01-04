@@ -1,5 +1,5 @@
 #
-# The CartesianProduct module provide methods for the calculation
+# The Cartesian module provide methods for the calculation
 # of the cartesian producted between two enumerable objects.
 #
 # It can also be easily mixed in into any enumerable class,
