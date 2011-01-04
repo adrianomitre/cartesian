@@ -1,0 +1,1 @@
+* Release GridSearch as a separate, independent gem. Note that 'lib/grid_search.rb' is already independent.
