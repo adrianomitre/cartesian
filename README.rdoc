@@ -8,11 +8,9 @@ Provides methods for the calculation of the cartesian producted between two
 or more enumerable objects. Includes grid search optimization methods.
 It can also be easily and conveniently mixed in into any enumerable class.
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
-The module is automatically mixed in Array class.
-
-Notice that the names of the methods for mixin are different.
+The module is automatically mixed in Array class, but the names of the methods for mixin are different.
 
 Module:
   Cartesian::product(foo, bar)
@@ -21,32 +19,31 @@ Mixin:
 
 == SYNOPSIS:
 
-
 # as module
-require 'cartesian'
-foo = [1, 2]
-bar = ["a", "b"]
-Cartesian::product(foo, bar) #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
+    require 'cartesian'
+    foo = [1, 2]
+    bar = ["a", "b"]
+    Cartesian::product(foo, bar) #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
 # as mixin
-require 'cartesian'
-foo = [1, 2]
-bar = ["a", "b"]
-foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
+    require 'cartesian'
+    foo = [1, 2]
+    bar = ["a", "b"]
+    foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
 # 'x' mixin method
-v = [] #=> []
-for a,b in [1,2].x [3,4]; v << [a,b]; end #=> true
-v #=> [[1, 3], [1, 4], [2, 3], [2, 4]]
+    v = [] #=> []
+    for a,b in [1,2].x [3,4]; v << [a,b]; end #=> true
+    v #=> [[1, 3], [1, 4], [2, 3], [2, 4]]
 
 # '**' operator provides a convenient way of iterating multi-dimensionally over the same array or range
-v = [0,1]**3 #=> #<CartesianIterator:0x7f2fb8e54978 @tot_iter=8, @lists=[[0, 1], [0, 1], [0, 1]]>
-v.to_a #=> [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
+    v = [0,1]**3 #=> #<CartesianIterator:0x7f2fb8e54978 @tot_iter=8, @lists=[[0, 1], [0, 1], [0, 1]]>
+    v.to_a #=> [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
 
 # grid search methods
-require 'grid_search'
-[-1, 0, 1, 2].argmax {|x| x**2 } #=> 2
-[-1, 0, 1, 2].argmin {|x| x.abs } #=> 0
+    require 'grid_search'
+    [-1, 0, 1, 2].argmax {|x| x**2 } #=> 2
+    [-1, 0, 1, 2].argmin {|x| x.abs } #=> 0
 
 == REQUIREMENTS:
 
