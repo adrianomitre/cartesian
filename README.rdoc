@@ -19,28 +19,30 @@ Mixin:
 
 == SYNOPSIS:
 
-# as module
+One can use the Cartesian module directly
     require 'cartesian'
     foo = [1, 2]
     bar = ["a", "b"]
     Cartesian::product(foo, bar) #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
-# as mixin
+or use the methods provided by the mixin in the Array classees
     require 'cartesian'
     foo = [1, 2]
     bar = ["a", "b"]
     foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
 
-# 'x' mixin method
+which include the short and sweet _x_ method
     v = [] #=> []
-    for a,b in [1,2].x [3,4]; v << [a,b]; end #=> true
+    for a,b in [1,2].x [3,4]
+      v << [a,b]
+    end #=> true
     v #=> [[1, 3], [1, 4], [2, 3], [2, 4]]
 
-# '**' operator provides a convenient way of iterating multi-dimensionally over the same array or range
+The '**' operator provides a convenient way of iterating multi-dimensionally over the same array or range
     v = [0,1]**3 #=> #<CartesianIterator:0x7f2fb8e54978 @tot_iter=8, @lists=[[0, 1], [0, 1], [0, 1]]>
     v.to_a #=> [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
 
-# grid search methods
+Finally, the grid search methods
     require 'grid_search'
     [-1, 0, 1, 2].argmax {|x| x**2 } #=> 2
     [-1, 0, 1, 2].argmin {|x| x.abs } #=> 0
