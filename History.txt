@@ -1,6 +1,6 @@
-=== 0.5.1 2011-01-04
+=== 0.5.3 2011-01-04
 
-* 1 minor enhancements:
+* 3 minor enhancements:
   * code comment/documentation update
   * README update
   * website created (textile index)
