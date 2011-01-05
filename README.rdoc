@@ -1,0 +1,78 @@
+= cartesian
+
+* http://adrianomitre.github.com/cartesian/website/index.html
+
+== DESCRIPTION:
+
+Provides methods for the calculation of the cartesian producted between two
+or more enumerable objects. Includes grid search optimization methods.
+It can also be easily and conveniently mixed in into any enumerable class.
+
+== FEATURES:
+
+The module is automatically mixed in Array class, but the names of the methods for mixin are different.
+
+Module:
+  Cartesian::product(foo, bar)
+Mixin:
+  foo.cartesian( bar )
+
+== SYNOPSIS:
+
+One can use the Cartesian module directly
+    require 'cartesian'
+    foo = [1, 2]
+    bar = ["a", "b"]
+    Cartesian::product(foo, bar) #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
+
+or use the methods provided by the mixin in the Array class
+    foo.cartesian(bar)  #=> [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
+
+which include the short'n'sweet _x_ method
+    v = [] #=> []
+    for a, b in [1,2].x [3,4]
+      v << [a,b]
+    end #=> true
+    v #=> [[1, 3], [1, 4], [2, 3], [2, 4]]
+
+The '**' operator provides a convenient way of iterating multi-dimensionally over the same array or range
+    v = [0,1]**3 #=> #<CartesianIterator:0x7f2fb8e54978 @tot_iter=8, @lists=[[0, 1], [0, 1], [0, 1]]>
+    v.to_a #=> [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
+
+Finally, the grid search methods
+    require 'grid_search'
+    [-1, 0, 1, 2].argmax {|x| x**2 } #=> 2
+    [-1, 0, 1, 2].argmin {|x| x.abs } #=> 0
+
+== REQUIREMENTS:
+
+* None, besides the Ruby interpreter and standard library. This gems was successfully tested on all relevant Ruby versions: MRI/YARV, JRuby, Rubinius, and REE. For details, see History.txt.
+
+== INSTALL:
+
+* sudo gem install cartesian
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2011 Adriano Mitre <adriano.mitre@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

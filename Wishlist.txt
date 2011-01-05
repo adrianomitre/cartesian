@@ -1,0 +1,3 @@
+* Release GridSearch as a separate, independent gem. Note that 'lib/grid_search.rb' is already independent.
+* Remove replication of VERSION in lib/cartesian.rb and lib/cartesian/version.rb due to parts of newgem 1.5.3 and older (DRY)
+* Fix/automate the FIXME in the website email (currently being fixed manually)
