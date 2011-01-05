@@ -39,7 +39,7 @@ which include the short'n'sweet _x_ method
 
 <pre syntax="ruby">
 v = [] #=> []
-for a,b in [1,2].x [3,4]
+for a, b in [1,2].x [3,4]
   v << [a,b]
 end #=> true
 v #=> [[1, 3], [1, 4], [2, 3], [2, 4]]
