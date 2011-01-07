@@ -1,92 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
 
-	<title>File: README.rdoc [RDoc Documentation]</title>
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
 
-	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
 
-	<script src="./js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="./js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
 </head>
+<body>
 
-<body class="file">
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#classes">Classes</a>
-          <a href="./index.html#methods">Methods</a>
-        </h3>
-			</div>
-		</div>
 
-		<div id="project-metadata">
-			
-			
-			<div id="fileindex-section" class="section project-section">
-				<h3 class="section-header">Files</h3>
-				<ul>
-				
-					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
-				
-				</ul>
-			</div>
-			
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="./images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Jan 07 12:12:17 -0200 2011</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
 
-				<ul class="link-list">
-				
-					<li><a href="./Array.html">Array</a></li>
-				
-					<li><a href="./Cartesian.html">Cartesian</a></li>
-				
-					<li><a href="./CartesianIterator.html">CartesianIterator</a></li>
-				
-					<li><a href="./Enumerable.html">Enumerable</a></li>
-				
-					<li><a href="./GridSearch.html">GridSearch</a></li>
-				
-					<li><a href="./Iterable.html">Iterable</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+  <div id="bodyContent">
 
-			
-		</div>
-	</div>
 
-	<div id="documentation">
-		<h1>cartesian</h1>
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>cartesian</h1>
 <ul>
-<li><p>
-<a
+<li><a
 href="http://adrianomitre.github.com/cartesian/website/index.html">adrianomitre.github.com/cartesian/website/index.html</a>
-</p>
+
 </li>
 </ul>
 <h2>DESCRIPTION:</h2>
@@ -97,8 +84,9 @@ can also be easily and conveniently mixed in into any enumerable class.
 </p>
 <h2>FEATURES:</h2>
 <p>
-The module is automatically mixed in <a href="Array.html">Array</a> class,
-but the names of the methods for mixin are different.
+The module is automatically mixed in <a
+href="../classes/Array.html">Array</a> class, but the names of the methods
+for mixin are different.
 </p>
 <p>
 Module:
@@ -114,7 +102,8 @@ Mixin:
 </pre>
 <h2>SYNOPSIS:</h2>
 <p>
-One can use the <a href="Cartesian.html">Cartesian</a> module directly
+One can use the <a href="../classes/Cartesian.html">Cartesian</a> module
+directly
 </p>
 <pre>
     require 'cartesian'
@@ -124,13 +113,13 @@ One can use the <a href="Cartesian.html">Cartesian</a> module directly
 </pre>
 <p>
 or use the methods provided by the mixin in the <a
-href="Array.html">Array</a> class
+href="../classes/Array.html">Array</a> class
 </p>
 <pre>
     foo.cartesian(bar)  #=&gt; [[1, &quot;a&quot;], [1, &quot;b&quot;], [2, &quot;a&quot;], [2, &quot;b&quot;]]
 </pre>
 <p>
-which include the short&#8217;n&#8217;sweet <em>x</em> method
+which include the short&#8216;n&#8216;sweet <em>x</em> method
 </p>
 <pre>
     v = [] #=&gt; []
@@ -164,18 +153,16 @@ Finally, the grid search methods
 </pre>
 <h2>REQUIREMENTS:</h2>
 <ul>
-<li><p>
-None, besides the Ruby interpreter and standard library. This gems was
+<li>None, besides the Ruby interpreter and standard library. This gems was
 successfully tested on all relevant Ruby versions: MRI/YARV, JRuby,
 Rubinius, and REE. For details, see History.txt.
-</p>
+
 </li>
 </ul>
 <h2>INSTALL:</h2>
 <ul>
-<li><p>
-sudo gem install cartesian
-</p>
+<li>sudo gem install cartesian
+
 </li>
 </ul>
 <h2>LICENSE:</h2>
@@ -183,7 +170,7 @@ sudo gem install cartesian
 (The MIT License)
 </p>
 <p>
-Copyright &#169; 2006-2011 Adriano Mitre <adriano.mitre@gmail.com>
+Copyright (c) 2006-2011 Adriano Mitre &lt;adriano.mitre@gmail.com&gt;
 </p>
 <p>
 Permission is hereby granted, free of charge, to any person obtaining a
@@ -208,13 +195,35 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 USE OR OTHER DEALINGS IN THE SOFTWARE.
 </p>
 
-	</div>
+    </div>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
 </body>
 </html>
-

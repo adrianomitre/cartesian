@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Cartesian</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Cartesian</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/cartesian_rb.html">
+                lib/cartesian.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The <a href="Cartesian.html">Cartesian</a> module provide methods for the
+calculation of the <a href="Cartesian.html#M000024">cartesian</a> producted
+between two enumerable objects.
+</p>
+<p>
+It can also be easily mixed in into any enumerable class, i.e. any class
+with <a href="Enumerable.html">Enumerable</a> module mixed in. Notice that
+the names of the methods for mixin are different.
+</p>
+<p>
+Module:
+</p>
+<pre>
+  Cartesian::product(foo, bar)
+</pre>
+<p>
+Mixin:
+</p>
+<pre>
+  foo.cartesian( bar )
+</pre>
+<p>
+The module is automatically mixed in <a href="Array.html">Array</a> class.
+</p>
+<h2>Author</h2>
+<p>
+Adriano MITRE &lt;adriano.mitre@gmail.com&gt;
+</p>
+<h2>Example</h2>
+<p>
+as module
+</p>
+<pre>
+  require 'cartesian'
+  foo = [1, 2]
+  bar = [&quot;a&quot;, &quot;b&quot;]
+  Cartesian::product(foo, bar) #=&gt; [[1, &quot;a&quot;], [1, &quot;b&quot;], [2, &quot;a&quot;], [2, &quot;b&quot;]]
+</pre>
+<p>
+as mixin
+</p>
+<pre>
+  require 'cartesian'
+  foo = [1, 2]
+  bar = [&quot;a&quot;, &quot;b&quot;]
+  foo.cartesian(bar)  #=&gt; [[1, &quot;a&quot;], [1, &quot;b&quot;], [2, &quot;a&quot;], [2, &quot;b&quot;]]
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000027">**</a>&nbsp;&nbsp;
+      <a href="#M000024">cartesian</a>&nbsp;&nbsp;
+      <a href="#M000022">joined_cartesian</a>&nbsp;&nbsp;
+      <a href="#M000021">joined_product</a>&nbsp;&nbsp;
+      <a href="#M000026">left_product</a>&nbsp;&nbsp;
+      <a href="#M000028">power!</a>&nbsp;&nbsp;
+      <a href="#M000020">product</a>&nbsp;&nbsp;
+      <a href="#M000025">right_product</a>&nbsp;&nbsp;
+      <a href="#M000023">x</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;0.6.1&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Unfortunately, as of now, the version data must be replicated in
+../cartesian.rb, due to a mix of newgem versions, each requiring a
+different one. Not DRY :P
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000021.html');return false;">
+          <span class="method-name">joined_product</span><span class="method-args">(first, second)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Behaves as <a href="Cartesian.html#M000020">product</a>, except for the
+elements are joined.
+</p>
+<pre>
+  Cartesian::joined_cartesian( [1,2], %w(A B) ) #=&gt; [&quot;1A&quot;, &quot;1B&quot;, &quot;2A&quot;, &quot;2B&quot;]
+</pre>
+<p>
+or, if mixed in into <a href="Array.html">Array</a>,
+</p>
+<pre>
+  [1,2].joined_cartesian %w(A B) #=&gt; [&quot;1A&quot;, &quot;1B&quot;, &quot;2A&quot;, &quot;2B&quot;]
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000020.html');return false;">
+          <span class="method-name">product</span><span class="method-args">(first, second)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Produces the <a href="Cartesian.html#M000024">cartesian</a> <a
+href="Cartesian.html#M000020">product</a> of self and other. The result is
+an array of pairs (i.e. two-element arrays).
+</p>
+<pre>
+  Cartesian::product( [1,2], %w(A B) ) #=&gt; [[1, &quot;A&quot;], [1, &quot;B&quot;], [2, &quot;A&quot;], [2, &quot;B&quot;]]
+</pre>
+<p>
+or, if mixed in into <a href="Array.html">Array</a>,
+</p>
+<pre>
+  [1,2].cartesian %w(A B) #=&gt; [[1, &quot;A&quot;], [1, &quot;B&quot;], [2, &quot;A&quot;], [2, &quot;B&quot;]]
+</pre>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000027.html');return false;">
+          <span class="method-name">**</span><span class="method-args">(fixnum)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Concise way of iterating multi-dimensionally over the same array or range.
+</p>
+<p>
+For instance,
+</p>
+<pre>
+  for x,y,z in [0,1]**3
+    puts [x, y, z].join(',')
+  end
+</pre>
+<p>
+produces the following output
+</p>
+<pre>
+  0,0,0
+  0,0,1
+  0,1,0
+  0,1,1
+  1,0,0
+  1,0,1
+  1,1,0
+  1,1,1
+</pre>
+<p>
+It also works with Range objects.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <span class="method-name">cartesian</span><span class="method-args">(other)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Cartesian.html#M000023">x</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000022.html');return false;">
+          <span class="method-name">joined_cartesian</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="Cartesian.html#M000021">Cartesian.joined_product</a> for mixin.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000026.html');return false;">
+          <span class="method-name">left_product</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <span class="method-name">power!</span><span class="method-args">(fixnum)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for #**
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <span class="method-name">right_product</span><span class="method-args">(other)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Cartesian.html#M000023">x</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="Cartesian.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('Cartesian.src/M000023.html');return false;">
+          <span class="method-name">x</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convenient way of iterating over the elements. Preferable when the <a
+href="Cartesian.html#M000024">cartesian</a> <a
+href="Cartesian.html#M000020">product</a> array is not needed, for the
+consumption of memory is fixed and very small, in contrast with the
+exponential memory requirements of the conventional approach.
+</p>
+<pre>
+  for row, col in (1..10).x(1..30)
+    Matrix[row, col] = row**2 + col**3
+  end
+</pre>
+<p>
+Of course, calls can be chained as in
+</p>
+<pre>
+  for x, y, z in (1..10).x(1..10).x(1..10)
+    # ... do something ...
+  end
+</pre>
+<p>
+Beware that both <tt>self</tt> and <tt>other</tt> must implement
+<tt>to_a</tt>, i.e., be convertible to array.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
