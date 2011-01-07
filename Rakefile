@@ -44,7 +44,9 @@ task :pre_release => [:manifest, :render_website] do
     puts
     puts "  Manifest.txt was re-generated and there were changes."
     puts "  Use 'git diff Manifest.txt' to inspect them."
-    puts
   end
+  puts
+  puts "  Do NOT forget to update History.txt (VERSION should have already be updated)."
+  puts
 end
 
