@@ -39,7 +39,7 @@ module Cartesian
   # Unfortunately, as of now, the version data must be replicated in ../cartesian.rb,
   # due to a mix of newgem versions, each requiring a different one. Not DRY :P
   #
-  VERSION = "0.5.3"
+  VERSION = "0.6.0"
 
   # Produces the cartesian product of self and other.
   # The result is an array of pairs (i.e. two-element arrays).
@@ -156,13 +156,30 @@ module Cartesian
     end
   end
   alias :power! :**
-end
-
-class Array
-  include Cartesian
-end
-
-class Range
-  include Cartesian
+  
+  # Sure, it would be great if +Enumerable.module_eval("include Cartesian")+ did the trick,
+  # but fact is that it would not work because of the [dynamic module include problem][1],
+  # so the following, less straightforward solution has to be applied.
+  #
+  # JRuby (at least up to version 1.5.6) has ObjectSpace disabled by default, so it needs
+  # to be enabled manually ([reference][2]).
+  #
+  # [1]: http://eigenclass.org/hiki/The+double+inclusion+problem                      "Dynamic Module Include Problem"
+  # [2]: http://ola-bini.blogspot.com/2007/07/objectspace-to-have-or-not-to-have.html "ObjectSpace: to have or not to have"
+  # [3]: http://www.ruby-forum.com/topic/160487                                       "problem of feedtools with jruby"
+  #
+  prev_jruby_objectspace_state = nil # only for scope reasons
+  if defined?(RUBY_DESCRIPTION) && RUBY_DESCRIPTION =~ /jruby/i
+    require 'jruby'
+    prev_jruby_objectspace_state = JRuby.objectspace
+    JRuby.objectspace = true
+  end
+  ObjectSpace.each_object(Module) do |m|
+    if m <= Enumerable # equiv. to "if m.include?(Enumerable) || m == Enumerable"
+      m.module_eval("include Cartesian") 
+    end
+  end
+  JRuby.objectspace = prev_jruby_objectspace_state if RUBY_DESCRIPTION =~ /jruby/i
+  
 end
 
