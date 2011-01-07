@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: README.rdoc [RDoc Documentation]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./Array.html">Array</a></li>
+				
+					<li><a href="./Cartesian.html">Cartesian</a></li>
+				
+					<li><a href="./CartesianIterator.html">CartesianIterator</a></li>
+				
+					<li><a href="./Enumerable.html">Enumerable</a></li>
+				
+					<li><a href="./GridSearch.html">GridSearch</a></li>
+				
+					<li><a href="./Iterable.html">Iterable</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1>cartesian</h1>
+<ul>
+<li><p>
+<a
+href="http://adrianomitre.github.com/cartesian/website/index.html">adrianomitre.github.com/cartesian/website/index.html</a>
+</p>
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+Provides methods for the calculation of the cartesian producted between two
+or more enumerable objects. Includes grid search optimization methods. It
+can also be easily and conveniently mixed in into any enumerable class.
+</p>
+<h2>FEATURES:</h2>
+<p>
+The module is automatically mixed in <a href="Array.html">Array</a> class,
+but the names of the methods for mixin are different.
+</p>
+<p>
+Module:
+</p>
+<pre>
+  Cartesian::product(foo, bar)
+</pre>
+<p>
+Mixin:
+</p>
+<pre>
+  foo.cartesian( bar )
+</pre>
+<h2>SYNOPSIS:</h2>
+<p>
+One can use the <a href="Cartesian.html">Cartesian</a> module directly
+</p>
+<pre>
+    require 'cartesian'
+    foo = [1, 2]
+    bar = [&quot;a&quot;, &quot;b&quot;]
+    Cartesian::product(foo, bar) #=&gt; [[1, &quot;a&quot;], [1, &quot;b&quot;], [2, &quot;a&quot;], [2, &quot;b&quot;]]
+</pre>
+<p>
+or use the methods provided by the mixin in the <a
+href="Array.html">Array</a> class
+</p>
+<pre>
+    foo.cartesian(bar)  #=&gt; [[1, &quot;a&quot;], [1, &quot;b&quot;], [2, &quot;a&quot;], [2, &quot;b&quot;]]
+</pre>
+<p>
+which include the short&#8217;n&#8217;sweet <em>x</em> method
+</p>
+<pre>
+    v = [] #=&gt; []
+    for a, b in [1,2].x [3,4]
+      v &lt;&lt; [a,b]
+    end #=&gt; true
+    v #=&gt; [[1, 3], [1, 4], [2, 3], [2, 4]]
+    for x, y, z in 0..1
+</pre>
+<p>
+The &#8217;**&#8217; operator provides a convenient way of iterating
+multi-dimensionally over the same array or range
+</p>
+<pre>
+    u = [0,1]**3 #=&gt; #&lt;CartesianIterator:0x7f2fb8e54978 @tot_iter=8, @lists=[[0, 1], [0, 1], [0, 1]]&gt;
+    u.to_a #=&gt; [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, 0], [1, 0, 1], [1, 1, 0], [1, 1, 1]]
+
+    v = []
+    for x, y, z in (0...10)**3
+      v &lt;&lt; [x, y, z] if x*x + y*y + z*z == 6
+    end
+    v #=&gt; [[1, 1, 2], [1, 2, 1], [2, 1, 1]]
+</pre>
+<p>
+Finally, the grid search methods
+</p>
+<pre>
+    require 'cartesian/grid_search'
+    [-1, 0, 1, 2].argmax {|x| x**2 } #=&gt; 2
+    0.argmin {|x| x.abs } #=&gt; 0
+</pre>
+<h2>REQUIREMENTS:</h2>
+<ul>
+<li><p>
+None, besides the Ruby interpreter and standard library. This gems was
+successfully tested on all relevant Ruby versions: MRI/YARV, JRuby,
+Rubinius, and REE. For details, see History.txt.
+</p>
+</li>
+</ul>
+<h2>INSTALL:</h2>
+<ul>
+<li><p>
+sudo gem install cartesian
+</p>
+</li>
+</ul>
+<h2>LICENSE:</h2>
+<p>
+(The MIT License)
+</p>
+<p>
+Copyright &#169; 2006-2011 Adriano Mitre <adriano.mitre@gmail.com>
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+

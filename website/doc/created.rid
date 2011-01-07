@@ -1,1 +1,5 @@
-Fri, 07 Jan 2011 12:50:43 -0200
+Fri, 07 Jan 2011 13:25:38 -0200
+README.rdoc	Fri, 07 Jan 2011 02:46:43 -0200
+lib/cartesian.rb	Fri, 07 Jan 2011 13:09:52 -0200
+lib/cartesian_iterator.rb	Fri, 07 Jan 2011 02:46:43 -0200
+lib/grid_search.rb	Wed, 05 Jan 2011 06:07:10 -0200

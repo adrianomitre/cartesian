@@ -25,10 +25,26 @@ Dir['tasks/**/*.rake'].each { |t| load t }
 # remove_task :default
 # task :default => [:spec, :features]
 
-task :render_website do |t|
+task :chdir do
   Dir.chdir File.dirname(File.expand_path(__FILE__))
-  system %q{ script/txt2html website/index.txt website/template.html.erb > website/index.html }
+end
+
+task :render_docs => [:chdir] do
+  system %q{ rm -rf doc/ }
   system %q{ rdoc README.rdoc lib/*.rb }
-  system %q{ rm -rf website/doc; mv doc website }
+end
+
+task :render_website => [:chdir, :render_docs] do |t|
+  system %q{ script/txt2html website/index.txt website/template.html.erb > website/index.html }
+  system %q{ rm -rf website/doc; cp -R doc website }
+end
+
+task :pre_release => [:manifest, :render_website] do
+  unless `git diff Manifest.txt`.empty?
+    puts
+    puts "  Manifest.txt was re-generated and there were changes."
+    puts "  Use 'git diff Manifest.txt' to inspect them."
+    puts
+  end
 end
 
