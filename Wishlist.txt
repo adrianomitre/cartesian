@@ -2,10 +2,6 @@
 
 * Include README.rdoc in the website/doc (RDoc)
 
-* Remove replication of VERSION in lib/cartesian.rb and lib/cartesian/version.rb due to parts of newgem 1.5.3 and older (DRY)
-
-* Fix/automate the "FIXME full name" in the website email (currently being fixed manually)
-
 = SUGGESTIONS:
 
 * Include information regarding the memory usage (vs other cartesian implementations):

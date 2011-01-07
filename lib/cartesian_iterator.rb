@@ -52,13 +52,13 @@ class CartesianIterator
     for list in @lists
       elems << list.restart_and_raw_next
     end
-    if RUBY_VERSION <= '1.9.1'; yield *elems.map {|x| x }; else; yield *elems; end
+    if RUBY_VERSION <= '1.9.1'; yield(*elems.map {|x| x }); else; yield(*elems); end # Yeah, v.map{|x|x} should be equal to v, but strangely it is NOT in Ruby versions prior to 1.9.2.
 
     last_list_index = @lists.size-1
     n = last_list_index
     loop do
       if elems[n] = @lists[n].raw_next
-        if RUBY_VERSION <= '1.9.1'; yield *elems.map {|x| x }; else; yield *elems; end
+        if RUBY_VERSION <= '1.9.1'; yield(*elems.map {|x| x }); else; yield(*elems); end # See previous comment.
         n = last_list_index
         next
       elsif n > 0
@@ -81,7 +81,7 @@ module Iterable
   end
 
   def next
-    restart unless @next_index
+    restart unless defined? @next_index
     raw_next
   end
 

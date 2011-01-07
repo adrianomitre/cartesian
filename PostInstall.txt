@@ -1,7 +1,4 @@
 
-For more information on cartesian, see http://cartesian.rubyforge.org
-
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
+For more information on cartesian, see http://adrianomitre.github.com/cartesian/website/index.html
 
 
