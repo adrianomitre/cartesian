@@ -39,7 +39,7 @@ module Cartesian
   # Unfortunately, as of now, the version data must be replicated in ../cartesian.rb,
   # due to a mix of newgem versions, each requiring a different one. Not DRY :P
   #
-  VERSION = "0.6.0"
+  VERSION = "0.6.1"
 
   # Produces the cartesian product of self and other.
   # The result is an array of pairs (i.e. two-element arrays).
