@@ -1,6 +1,5 @@
-older_versions/*
 coverage/*
 pkg/*
 doc/*
-
+*.rbc
 
