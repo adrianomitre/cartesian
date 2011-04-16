@@ -179,7 +179,7 @@ module Cartesian
       m.module_eval("include Cartesian") 
     end
   end
-  JRuby.objectspace = prev_jruby_objectspace_state if RUBY_DESCRIPTION =~ /jruby/i
+  JRuby.objectspace = prev_jruby_objectspace_state if defined?(RUBY_DESCRIPTION) && RUBY_DESCRIPTION =~ /jruby/i
   
 end
 
