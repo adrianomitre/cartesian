@@ -20,7 +20,7 @@ class CartesianIterator
   alias == equal
 
   def product!(other)
-    @lists << other.to_a.dup
+    @lists << Array(other).dup
     @tot_iter *= @lists[-1].size
     self
   end
@@ -28,7 +28,7 @@ class CartesianIterator
   alias x! product!
   
   def left_product!(other)
-    @lists.unshift other.to_a.dup
+    @lists.unshift Array(other).dup
     @tot_iter *= @lists[-1].size
     self
   end
