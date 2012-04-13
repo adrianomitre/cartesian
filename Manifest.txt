@@ -13,6 +13,7 @@ lib/cartesian/grid_search.rb
 lib/cartesian/version.rb
 lib/cartesian_iterator.rb
 lib/grid_search.rb
+lib/iterable.rb
 script/console
 script/destroy
 script/generate
@@ -24,6 +25,7 @@ test/test_cartesian_iterator.rb
 test/test_extensions.rb
 test/test_grid_search.rb
 test/test_helper.rb
+test/test_iterable.rb
 test/test_suite.rb
 website/doc/Array.html
 website/doc/Cartesian.html
@@ -37,6 +39,7 @@ website/doc/index.html
 website/doc/lib/cartesian_iterator_rb.html
 website/doc/lib/cartesian_rb.html
 website/doc/lib/grid_search_rb.html
+website/doc/lib/iterable_rb.html
 website/doc/rdoc.css
 website/index.html
 website/index.txt
