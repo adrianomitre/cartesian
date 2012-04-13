@@ -63,7 +63,8 @@ class CartesianIterator
     last_list_index = @lists.size-1
     n = last_list_index
     loop do
-      if elems[n] = @lists[n].raw_next
+      if !@lists[n].done?
+        elems[n] = @lists[n].raw_next
         if RUBY_VERSION <= '1.9.1'; yield(*elems.map {|x| x }); else; yield(*elems); end # See previous comment.
         n = last_list_index
         next
