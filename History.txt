@@ -1,3 +1,10 @@
+=== 0.6.5 2012-04-13
+
+*  1 bug fix:
+  * Iterable now properly handles nil and false elements.
+    Thanks for ryanberckmans for pointing out the wrong behaviour
+    (https://github.com/adrianomitre/cartesian/issues/4)
+
 === 0.6.4 2011-01-07
 
 *  1 minor enhancements:
