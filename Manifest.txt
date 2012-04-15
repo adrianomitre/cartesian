@@ -39,7 +39,6 @@ website/doc/index.html
 website/doc/lib/cartesian_iterator_rb.html
 website/doc/lib/cartesian_rb.html
 website/doc/lib/grid_search_rb.html
-website/doc/lib/iterable_rb.html
 website/doc/rdoc.css
 website/index.html
 website/index.txt

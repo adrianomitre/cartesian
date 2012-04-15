@@ -49,7 +49,7 @@ The '**' operator provides a convenient way of iterating multi-dimensionally ove
 Finally, the grid search methods
     require 'cartesian/grid_search'
     [-1, 0, 1, 2].argmax {|x| x**2 } #=> 2
-    0.argmin {|x| x.abs } #=> 0
+    [-1, 0, 1, 2].argmin {|x| x.abs } #=> 0
 
 == REQUIREMENTS:
 
