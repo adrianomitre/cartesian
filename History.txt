@@ -1,3 +1,9 @@
+=== 0.6.6 2012-04-15
+
+* 2 minor documentation fixes:
+  * updated Manifest.txt
+  * fixed issue #2 typo in README.rdoc
+
 === 0.6.5 2012-04-13
 
 *  1 bug fix:
