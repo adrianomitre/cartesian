@@ -1,3 +1,9 @@
+require 'iterable'
+
+class Array
+  include Iterable
+end
+
 class CartesianIterator
 
   def initialize(foo, bar)
@@ -20,7 +26,7 @@ class CartesianIterator
   alias == equal
 
   def product!(other)
-    @lists << other.to_a.dup
+    @lists << Array(other).dup
     @tot_iter *= @lists[-1].size
     self
   end
@@ -28,7 +34,7 @@ class CartesianIterator
   alias x! product!
   
   def left_product!(other)
-    @lists.unshift other.to_a.dup
+    @lists.unshift Array(other).dup
     @tot_iter *= @lists[-1].size
     self
   end
@@ -52,13 +58,14 @@ class CartesianIterator
     for list in @lists
       elems << list.restart_and_raw_next
     end
-    if RUBY_VERSION <= '1.9.1'; yield(*elems.map {|x| x }); else; yield(*elems); end # Yeah, v.map{|x|x} should be equal to v, but strangely it is NOT in Ruby versions prior to 1.9.2.
+    yield(*elems.dup)
 
     last_list_index = @lists.size-1
     n = last_list_index
     loop do
-      if elems[n] = @lists[n].raw_next
-        if RUBY_VERSION <= '1.9.1'; yield(*elems.map {|x| x }); else; yield(*elems); end # See previous comment.
+      if !@lists[n].done?
+        elems[n] = @lists[n].raw_next
+        yield(*elems.dup)
         n = last_list_index
         next
       elsif n > 0
@@ -72,28 +79,4 @@ class CartesianIterator
 
   include Enumerable
 
-end
-
-module Iterable
-  def restart
-    @next_index = -1
-    true
-  end
-
-  def next
-    restart unless defined? @next_index
-    raw_next
-  end
-
-  def raw_next
-    self[@next_index += 1]
-  end
-
-  def restart_and_raw_next
-    self[@next_index = 0]
-  end
-end
-
-class Array
-  include Iterable
 end

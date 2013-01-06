@@ -1,3 +1,21 @@
+=== 0.6.7 2012-04-15
+
+* 1 bug fix:
+  * Thanks to bclennox for "Fixing a problem with JRuby 1.7 and yielding in CartesianIterator#each."
+
+=== 0.6.6 2012-04-15
+
+* 2 minor documentation fixes:
+  * updated Manifest.txt
+  * fixed issue #2 typo in README.rdoc
+
+=== 0.6.5 2012-04-13
+
+*  1 bug fix:
+  * Iterable now properly handles nil and false elements.
+    Thanks for ryanberckmans for pointing out the wrong behaviour
+    (https://github.com/adrianomitre/cartesian/issues/4)
+
 === 0.6.4 2011-01-07
 
 *  1 minor enhancements:

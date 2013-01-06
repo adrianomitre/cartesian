@@ -39,7 +39,7 @@ module Cartesian
   # Unfortunately, as of now, the version data must be replicated in ../cartesian.rb,
   # due to a mix of newgem versions, each requiring a different one. Not DRY :P
   #
-  VERSION = "0.6.4"
+  VERSION = "0.6.7"
 
   # Produces the cartesian product of self and other.
   # The result is an array of pairs (i.e. two-element arrays).
@@ -179,7 +179,7 @@ module Cartesian
       m.module_eval("include Cartesian") 
     end
   end
-  JRuby.objectspace = prev_jruby_objectspace_state if RUBY_DESCRIPTION =~ /jruby/i
+  JRuby.objectspace = prev_jruby_objectspace_state if defined?(RUBY_DESCRIPTION) && RUBY_DESCRIPTION =~ /jruby/i
   
 end
 

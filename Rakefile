@@ -18,7 +18,7 @@ $hoe = Hoe.spec 'cartesian' do
 
 end
 
-require 'newgem/tasks'
+require 'rubygems/package_task'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
 # TODO - want other tests/tasks run by default? Add them to the list
