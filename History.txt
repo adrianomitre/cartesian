@@ -1,3 +1,8 @@
+=== 0.6.7 2012-04-15
+
+* 1 bug fix:
+  * Thanks to bclennox for "Fixing a problem with JRuby 1.7 and yielding in CartesianIterator#each."
+
 === 0.6.6 2012-04-15
 
 * 2 minor documentation fixes:
